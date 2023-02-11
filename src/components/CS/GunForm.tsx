@@ -70,7 +70,7 @@ const GunForm = () => {
 					<span className={`mr-4 ${spanText}`}>StatTrak™</span>
 					<input type="checkbox" id="isSt" name="isSt" value="true" />
 				</div>
-				<button className="border-2 w-28 p-2 border-violet-500 text-gray-700 self-end font-semibold text-md  transition-all hover:text-white hover:bg-indigo-500">
+				<button className="text-md w-28 self-end border-2 border-violet-500 p-2 font-semibold text-gray-700  transition-all hover:bg-indigo-500 hover:text-white">
 					Add
 				</button>
 			</FormWrapper>

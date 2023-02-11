@@ -9,7 +9,7 @@ type Props = {
 const FormWrapper = ({ children, className, submit }: Props) => {
 	return (
 		<form
-			className={"flex flex-col w-full p-4 py-12" + " " + className}
+			className={"flex w-full flex-col p-4 py-12" + " " + className}
 			onSubmit={submit}
 		>
 			{children}

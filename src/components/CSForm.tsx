@@ -9,7 +9,7 @@ import StickerForm from "./CS/StickerForm";
 export default function CSForm() {
 	const category = useSelector((state: RootState) => state.cs.tab);
 	return (
-		<div className="h-full w-full rounded border flex flex-col bg-white overflow-hidden">
+		<div className="flex h-full w-full flex-col overflow-hidden rounded border bg-white">
 			<CSNav />
 			<AnimatePresence mode="wait">
 				{category === "g" ? <GunForm key={"g"} /> : <StickerForm key={"s"} />}

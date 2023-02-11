@@ -18,7 +18,7 @@ const CSNav: React.FC<{}> = () => {
 					onClick={() => changeTabFunction("g")}
 					className={`w-full ${
 						csTab === "g" ? "bg-gray-100" : "bg-white"
-					} p-2 text-center text-black font-semibold transition-colors hover:cursor-pointer hover:bg-gray-200`}
+					} p-2 text-center font-semibold text-black transition-colors hover:cursor-pointer hover:bg-gray-200`}
 				>
 					Guns
 				</li>
@@ -26,14 +26,14 @@ const CSNav: React.FC<{}> = () => {
 					onClick={() => changeTabFunction("s")}
 					className={`w-full ${
 						csTab === "s" ? "bg-gray-100" : "bg-white"
-					} p-2 text-center text-black font-semibold transition-colors hover:cursor-pointer hover:bg-gray-200`}
+					} p-2 text-center font-semibold text-black transition-colors hover:cursor-pointer hover:bg-gray-200`}
 				>
 					Stickers
 				</li>
 				<div
 					className={`absolute bg-violet-500 ${
 						csTab === "g" ? "left-0" : "left-1/2"
-					} bottom-0 w-1/2 h-1 transition-all`}
+					} bottom-0 h-1 w-1/2 transition-all`}
 				></div>
 			</ul>
 		</nav>
