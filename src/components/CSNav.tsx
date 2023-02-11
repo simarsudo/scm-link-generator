@@ -3,7 +3,10 @@ import { RootState } from "../store/store";
 import { changeTab } from "../store/cs";
 import { useDispatch, useSelector } from "react-redux";
 
-const CSNav: React.FC<{}> = () => {
+const CSNav: React.FC<{
+	category: string;
+	setCategory: (value: string) => void;
+}> = () => {
 	const csTab = useSelector((state: RootState) => state.cs.tab);
 	const changeTabFunction = (value: string) => {
 		dispatch(changeTab(value));
