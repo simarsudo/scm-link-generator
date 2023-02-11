@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import FormWrapper from "../FormWrapper";
 
 type Props = {};
 
 const StickerForm = (props: Props) => {
+	const submitHandler = () => {};
+
 	return (
 		<motion.div
 			initial={{ y: 10, opacity: 0 }}
@@ -12,12 +15,12 @@ const StickerForm = (props: Props) => {
 			transition={{ duration: 0.2 }}
 			className="h-full bg-white"
 		>
-			<form className="w-full">
+			<FormWrapper className="w-full" submit={submitHandler}>
 				<div>
 					<span>Sticker Type</span>
 					<input type="text" />
 				</div>
-			</form>
+			</FormWrapper>
 		</motion.div>
 	);
 };

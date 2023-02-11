@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import FormWrapper from "../FormWrapper";
+import GunType from "../input-component/GunType";
 
 type Props = {};
 
 const GunForm = (props: Props) => {
+	const submitHandler = () => {};
+
 	return (
 		<motion.div
 			initial={{ y: 10, opacity: 0 }}
@@ -12,12 +16,9 @@ const GunForm = (props: Props) => {
 			transition={{ duration: 0.2 }}
 			className="h-full bg-white"
 		>
-			<form className="w-full">
-				<div>
-					<span>Gun Type</span>
-					<input type="text" />
-				</div>
-			</form>
+			<FormWrapper className="" submit={submitHandler}>
+				<GunType />
+			</FormWrapper>
 		</motion.div>
 	);
 };
