@@ -4,6 +4,7 @@ import FormWrapper from "../FormWrapper";
 import GunType from "../input-component/GunType";
 
 const checkBoxWrapper = "flex gap-2 items-center justify-center";
+const spanText = "font-semibold text-gray-700";
 
 const GunForm = () => {
 	const [gunType, setGunType] = useState<string | undefined>("AK-47");
@@ -23,12 +24,16 @@ const GunForm = () => {
 			className="h-full bg-white"
 		>
 			<FormWrapper
-				className=""
+				className="flex flex-col gap-4"
 				submit={(e: React.FormEvent) => submitHandler(e)}
 			>
-				<GunType setGunType={setGunType} />
-				<div>
-					<span>Name</span>
+				<GunType
+					setGunType={setGunType}
+					className="gap-2"
+					spanText={spanText}
+				/>
+				<div className="flex flex-col gap-2">
+					<span className={spanText}>Name</span>
 					<input
 						required
 						type="text"
@@ -36,9 +41,9 @@ const GunForm = () => {
 						placeholder="Names are Case Sensitive"
 					/>
 				</div>
-				<div className="flex">
-					<span>Condition/s</span>
-					<div className="flex gap-2">
+				<div className="flex flex-col gap-2">
+					<span className={spanText}>Condition/s</span>
+					<div className="flex gap-4 pl-4">
 						<div className={checkBoxWrapper}>
 							<input type="checkbox" id="FN" name="FN" value="true" />
 							<span>FN</span>
@@ -61,11 +66,13 @@ const GunForm = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex gap-4 items-center">
-					<span>StatTrak™</span>
+				<div>
+					<span className={`mr-4 ${spanText}`}>StatTrak™</span>
 					<input type="checkbox" id="isSt" name="isSt" value="true" />
 				</div>
-				<button>Add</button>
+				<button className="border-2 w-28 p-2 border-violet-500 text-gray-700 self-end font-semibold text-md  transition-all hover:text-white hover:bg-indigo-500">
+					Add
+				</button>
 			</FormWrapper>
 		</motion.div>
 	);

@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 
 type Props = {
 	setGunType: (value: string | undefined) => void;
+	className: string;
+	spanText: string;
 };
 
 const GUNTYPES: string[] = [
@@ -42,8 +44,8 @@ const GunType = (props: Props) => {
 	const valueRef = useRef<HTMLSelectElement>(null);
 
 	return (
-		<div>
-			<span>Type</span>
+		<div className={`flex flex-col ` + props.className}>
+			<span className={props.spanText}>Type</span>
 			<select
 				name="type"
 				id="gunType"
