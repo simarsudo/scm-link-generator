@@ -4,7 +4,7 @@ import SummaryTable from "./SummaryTable";
 
 export default function CS() {
 	return (
-		<div className="flex h-full w-full items-center justify-center gap-16 bg-neutral-800 p-16">
+		<div className="flex h-full w-full items-center justify-center gap-16 bg-violet-500 p-20">
 			<CSForm />
 			<SummaryTable />
 		</div>
