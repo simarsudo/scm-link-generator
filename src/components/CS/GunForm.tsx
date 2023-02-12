@@ -70,9 +70,13 @@ const GunForm = () => {
 					<span className={`mr-4 ${spanText}`}>StatTrak™</span>
 					<input type="checkbox" id="isSt" name="isSt" value="true" />
 				</div>
-				<button className="text-md h-11 w-28 self-end border-2 border-cyan-500 p-2 font-semibold text-white  transition-all hover:bg-cyan-500 hover:text-white">
+				<motion.button
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.9 }}
+					className="text-md hover:bg-border-500 h-11 w-28 self-end border-4 border-cyan-500 p-2 font-semibold  text-white transition-all hover:bg-cyan-500 hover:text-white"
+				>
 					Add
-				</button>
+				</motion.button>
 			</FormWrapper>
 		</motion.div>
 	);
