@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import FormWrapper from "../FormWrapper";
 import GunType from "../input-component/GunType";
 
-const checkBoxWrapper = "flex gap-2 items-center justify-center";
-const spanText = "font-semibold text-gray-700";
+const checkBoxWrapper = "flex gap-2 items-center justify-center text-gray-200";
+const spanText = "font-semibold text-white";
 
 const GunForm = () => {
 	const [gunType, setGunType] = useState<string | undefined>("AK-47");
@@ -21,7 +21,7 @@ const GunForm = () => {
 			animate={{ y: 0, opacity: 1 }}
 			exit={{ y: -10, opacity: 0 }}
 			transition={{ duration: 0.2 }}
-			className="h-full bg-white"
+			className="h-full bg-neutral-700"
 		>
 			<FormWrapper
 				className="flex flex-col gap-4"
@@ -70,7 +70,7 @@ const GunForm = () => {
 					<span className={`mr-4 ${spanText}`}>StatTrak™</span>
 					<input type="checkbox" id="isSt" name="isSt" value="true" />
 				</div>
-				<button className="text-md h-11 w-28 self-end border-2 border-violet-500 p-2 font-semibold text-gray-700  transition-all hover:bg-indigo-500 hover:text-white">
+				<button className="text-md h-11 w-28 self-end border-2 border-cyan-500 p-2 font-semibold text-white  transition-all hover:bg-cyan-500 hover:text-white">
 					Add
 				</button>
 			</FormWrapper>
