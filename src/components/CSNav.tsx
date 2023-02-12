@@ -31,7 +31,7 @@ const CSNav: React.FC<{}> = () => {
 					Stickers
 				</li>
 				<div
-					className={`absolute bg-teal-500 ${
+					className={`absolute bg-cyan-500 ${
 						csTab === "g" ? "left-0" : "left-1/2"
 					} bottom-0 h-2 w-1/2 transition-all`}
 				></div>

@@ -73,7 +73,7 @@ const GunForm = () => {
 				<motion.button
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
-					className="text-md hover:bg-border-500 h-11 w-28 self-end border-4 border-teal-500 p-2 font-semibold  text-white transition-all hover:bg-teal-500 hover:text-white"
+					className="text-md hover:bg-border-500 h-11 w-28 self-end border-4 border-cyan-500 p-2 font-semibold  text-white transition-all hover:bg-cyan-500 hover:text-white"
 				>
 					Add
 				</motion.button>

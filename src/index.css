@@ -18,10 +18,10 @@
 	[multiple],
 	textarea,
 	select {
-		@apply flex h-12 w-[98%] self-end border-4 border-teal-500 font-semibold text-gray-700 transition-all focus:rounded-none focus:border-4 focus:border-teal-500;
+		@apply flex h-12 w-[98%] self-end border-4 border-cyan-500 font-semibold text-gray-700 transition-all focus:rounded-none focus:border-4 focus:border-cyan-500;
 	}
 	[type="checkbox"],
 	[type="radio"] {
-		@apply h-5 w-5 rounded border-gray-400 text-teal-500 focus:ring-teal-600;
+		@apply h-5 w-5 rounded border-gray-400 text-cyan-500 focus:ring-cyan-600;
 	}
 }
