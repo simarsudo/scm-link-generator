@@ -13,7 +13,7 @@ const StickerForm = (props: Props) => {
 			animate={{ y: 0, opacity: 1 }}
 			exit={{ y: -10, opacity: 0 }}
 			transition={{ duration: 0.2 }}
-			className="flex h-full w-full flex-col overflow-hidden rounded bg-neutral-700 text-white shadow-md shadow-cyan-600"
+			className="flex h-full w-full flex-col overflow-hidden rounded bg-neutral-700 text-white shadow-md shadow-teal-600"
 		>
 			<FormWrapper className="w-full" submit={submitHandler}>
 				<div>
