@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import FormWrapper from "../FormWrapper";
 import GunType from "../input-component/GunType";
@@ -8,11 +8,19 @@ const spanText = "font-semibold text-white";
 
 const GunForm = () => {
 	const [gunType, setGunType] = useState<string | undefined>("AK-47");
+	const [gunConditions, setGunConditions] = useState({
+		FN: false,
+		MW: false,
+		FT: false,
+		WW: false,
+		BS: false,
+	});
+	const [isStatTrak, setIsStatTrak] = useState(false);
 	const gunNameRef = useRef<HTMLInputElement>(null);
 
 	const submitHandler = (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log(gunType, gunNameRef.current?.value);
+		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
 	};
 
 	return (
@@ -45,30 +53,72 @@ const GunForm = () => {
 					<span className={spanText}>Condition/s</span>
 					<div className="flex gap-4 pl-4">
 						<div className={checkBoxWrapper}>
-							<input type="checkbox" id="FN" name="FN" value="true" />
+							<input
+								type="checkbox"
+								id="FN"
+								name="FN"
+								onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+									setGunConditions({ ...gunConditions, FN: e.target.checked });
+								}}
+							/>
 							<span>FN</span>
 						</div>
 						<div className={checkBoxWrapper}>
-							<input type="checkbox" id="MW" name="MW" value="true" />
+							<input
+								type="checkbox"
+								id="MW"
+								name="MW"
+								onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+									setGunConditions({ ...gunConditions, MW: e.target.checked });
+								}}
+							/>
 							<span>MW</span>
 						</div>
 						<div className={checkBoxWrapper}>
-							<input type="checkbox" id="FT" name="FT" value="true" />
+							<input
+								type="checkbox"
+								id="FT"
+								name="FT"
+								onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+									setGunConditions({ ...gunConditions, FT: e.target.checked });
+								}}
+							/>
 							<span>FT</span>
 						</div>
 						<div className={checkBoxWrapper}>
-							<input type="checkbox" id="WW" name="WW" value="true" />
+							<input
+								type="checkbox"
+								id="WW"
+								name="WW"
+								onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+									setGunConditions({ ...gunConditions, WW: e.target.checked });
+								}}
+							/>
 							<span>WW</span>
 						</div>
 						<div className={checkBoxWrapper}>
-							<input type="checkbox" id="BS" name="BS" value="true" />
+							<input
+								type="checkbox"
+								id="BS"
+								name="BS"
+								onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+									setGunConditions({ ...gunConditions, BS: e.target.checked });
+								}}
+							/>
 							<span>BS</span>
 						</div>
 					</div>
 				</div>
 				<div>
 					<span className={`mr-4 ${spanText}`}>StatTrak™</span>
-					<input type="checkbox" id="isSt" name="isSt" value="true" />
+					<input
+						type="checkbox"
+						id="isSt"
+						name="isSt"
+						onChange={(e: ChangeEvent<HTMLInputElement>): void => {
+							setIsStatTrak(e.target.checked);
+						}}
+					/>
 				</div>
 				<motion.button
 					whileHover={{ scale: 1.1 }}
