@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export default function SummaryTable() {
+	const summaryData = useSelector((state: RootState) => state.csSummary);
 	return (
 		<div className="flex h-full w-full flex-col overflow-hidden rounded bg-neutral-700 text-white shadow-md shadow-cyan-800">
 			<table className="table-auto pl-4">

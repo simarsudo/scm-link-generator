@@ -2,13 +2,17 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import FormWrapper from "../FormWrapper";
 import GunType from "../input-component/GunType";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/csSummary";
+
+type gc = { FN: Boolean; MW: Boolean; FT: Boolean; WW: Boolean; BS: Boolean };
 
 const checkBoxWrapper = "flex gap-2 items-center justify-center text-gray-200";
 const spanText = "font-semibold text-white";
 
 const GunForm = () => {
 	const [gunType, setGunType] = useState<string | undefined>("AK-47");
-	const [gunConditions, setGunConditions] = useState({
+	const [gunConditions, setGunConditions] = useState<gc>({
 		FN: false,
 		MW: false,
 		FT: false,
@@ -17,10 +21,24 @@ const GunForm = () => {
 	});
 	const [isStatTrak, setIsStatTrak] = useState(false);
 	const gunNameRef = useRef<HTMLInputElement>(null);
+	const dispatch = useDispatch();
 
 	const submitHandler = (e: React.FormEvent) => {
 		e.preventDefault();
+		const conditions = [];
+		let k: keyof gc;
+		for (k in gunConditions) {
+			if (gunConditions[k] === true) {
+				conditions.push(k);
+			}
+		}
+		const keyValues = {
+			name: gunNameRef.current?.value,
+			isStatTrak: isStatTrak,
+			conditions: [...conditions],
+		};
 		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
+		dispatch(addItem([gunNameRef.current?.value, keyValues]));
 	};
 
 	return (
