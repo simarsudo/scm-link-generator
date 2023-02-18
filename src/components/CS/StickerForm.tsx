@@ -44,7 +44,7 @@ const StickerForm = (props: Props) => {
 			tournamentName: tName.current?.value,
 			grade: [...sGrade],
 		};
-		dispatch(addItem([stickerName.current?.value, keyValues]));
+		dispatch(addItem([`${stickerName.current?.value}sticker`, keyValues]));
 		console.log(
 			`${stickerName.current?.value}sticker`,
 			isTS,
