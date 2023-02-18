@@ -45,7 +45,12 @@ const StickerForm = (props: Props) => {
 			grade: [...sGrade],
 		};
 		dispatch(addItem([stickerName.current?.value, keyValues]));
-		console.log(stickerName.current?.value, isTS, tName.current?.value, grade);
+		console.log(
+			`${stickerName.current?.value}sticker`,
+			isTS,
+			tName.current?.value,
+			grade
+		);
 	};
 
 	return (
