@@ -1,6 +1,16 @@
 import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import FormWrapper from "../FormWrapper";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/csSummary";
+
+type sc = {
+	Paper: Boolean;
+	Foil: Boolean;
+	Glitter: Boolean;
+	Holo: Boolean;
+	Gold: Boolean;
+};
 
 type Props = {};
 const checkBoxWrapper = "flex gap-2 items-center justify-center text-gray-200";
@@ -10,16 +20,31 @@ const StickerForm = (props: Props) => {
 	const stickerName = useRef<HTMLInputElement>(null);
 	const [isTS, setisTS] = useState(false);
 	const tName = useRef<HTMLInputElement>(null);
-	const [grade, setGrade] = useState({
+	const [grade, setGrade] = useState<sc>({
 		Paper: false,
 		Foil: false,
 		Glitter: false,
 		Holo: false,
 		Gold: false,
 	});
+	const dispatch = useDispatch();
 
 	const submitHandler = (e: FormEvent) => {
 		e.preventDefault();
+		const sGrade = [];
+		let k: keyof sc;
+		for (k in grade) {
+			if (grade[k] === true) {
+				sGrade.push(k);
+			}
+		}
+		const keyValues = {
+			name: stickerName.current?.value,
+			isTS: isTS,
+			tournamentName: tName.current?.value,
+			grade: [...sGrade],
+		};
+		dispatch(addItem([stickerName.current?.value, keyValues]));
 		console.log(stickerName.current?.value, isTS, tName.current?.value, grade);
 	};
 
