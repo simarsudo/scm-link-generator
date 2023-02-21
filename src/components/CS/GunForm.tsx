@@ -33,12 +33,13 @@ const GunForm = () => {
 			}
 		}
 		const keyValues = {
-			name: gunNameRef.current?.value,
+			name: gunNameRef.current?.value!,
+			type: gunType!,
 			isStatTrak: isStatTrak,
 			conditions: [...conditions],
 		};
 		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
-		dispatch(addItem([`${gunNameRef.current?.value}gun`, keyValues]));
+		dispatch(addItem(keyValues));
 	};
 
 	return (

@@ -39,12 +39,13 @@ const StickerForm = (props: Props) => {
 			}
 		}
 		const keyValues = {
-			name: stickerName.current?.value,
+			name: stickerName.current?.value!,
 			isTS: isTS,
-			tournamentName: tName.current?.value,
+			type: isTS ? "Tournament Sticker" : "Sticker",
+			tournamentName: tName.current?.value!,
 			grade: [...sGrade],
 		};
-		dispatch(addItem([`${stickerName.current?.value}sticker`, keyValues]));
+		dispatch(addItem(keyValues));
 		console.log(
 			`${stickerName.current?.value}sticker`,
 			isTS,

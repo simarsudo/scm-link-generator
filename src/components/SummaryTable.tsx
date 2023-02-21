@@ -1,6 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { gun, sticker } from "../typeModels/models";
+
+<tr>
+	<td className="p-4 pl-4 text-left">Yo</td>
+	<td className="p-4 pl-4 text-left">Yo1</td>
+	<td className="p-4 pl-4 text-left">Yo2</td>
+</tr>;
 
 export default function SummaryTable() {
 	const summaryData = useSelector((state: RootState) => state.csSummary);
@@ -15,21 +22,25 @@ export default function SummaryTable() {
 					</tr>
 				</thead>
 				<tbody className="divide-y-2 divide-gray-600">
-					<tr>
-						<td className="p-4 pl-4 text-left">Yo</td>
-						<td className="p-4 pl-4 text-left">Yo1</td>
-						<td className="p-4 pl-4 text-left">Yo2</td>
-					</tr>
-					<tr>
-						<td className="p-4 pl-4 text-left">Yo</td>
-						<td className="p-4 pl-4 text-left">Yo1</td>
-						<td className="p-4 pl-4 text-left">Yo2</td>
-					</tr>
-					<tr>
-						<td className="p-4 pl-4 text-left">Yo</td>
-						<td className="p-4 pl-4 text-left">Yo1</td>
-						<td className="p-4 pl-4 text-left">Yo2</td>
-					</tr>
+					{Object.values(summaryData).map((x: gun | sticker) => {
+						if ("isStatTrak" in x) {
+							return (
+								// Gun
+								<tr key={x.name}>
+									<td className="p-4 pl-4 text-left">{x.name}</td>
+									<td className="p-4 pl-4 text-left">{x.type}</td>
+								</tr>
+							);
+						} else {
+							//  Sticker
+							return (
+								<tr key={x.name}>
+									<td className="p-4 pl-4 text-left">{x.name}</td>
+									<td className="p-4 pl-4 text-left">{x.type}</td>
+								</tr>
+							);
+						}
+					})}
 				</tbody>
 			</table>
 		</div>
