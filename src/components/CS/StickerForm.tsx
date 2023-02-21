@@ -82,6 +82,7 @@ const StickerForm = (props: Props) => {
 						type="text"
 						className="justify-end"
 						ref={stickerName}
+						placeholder="s1mple"
 						required
 					/>
 				</div>
@@ -98,6 +99,7 @@ const StickerForm = (props: Props) => {
 						ref={tName}
 						disabled={!isTS}
 						className="disabled:cursor-not-allowed"
+						placeholder="Antwerp 2022"
 					/>
 				</div>
 				<div className="flex flex-col gap-4">
