@@ -63,9 +63,11 @@ export default function SummaryTable() {
 			<table className="table-fixed pl-4">
 				<thead className="sticky top-0 z-10 bg-neutral-700 after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:bg-gray-300">
 					<tr className="">
-						<th className="p-4 py-3 text-left text-lg">Name</th>
-						<th className="p-4 py-3 text-left text-lg">Type</th>
-						<th className="p-4 py-3 text-left text-lg">Condition/Grade</th>
+						<th className="w-1/3 p-4 py-3 text-left text-lg">Name</th>
+						<th className="w-1/3 p-4 py-3 text-left text-lg">Type</th>
+						<th className="w-1/3 p-4 py-3 text-left text-lg">
+							Condition/Grade
+						</th>
 					</tr>
 				</thead>
 				<tbody className="relative divide-y-2 divide-gray-600">
