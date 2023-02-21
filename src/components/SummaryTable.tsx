@@ -61,7 +61,7 @@ export default function SummaryTable() {
 	return (
 		<div className="flex h-full w-full flex-col overflow-hidden overflow-y-auto rounded bg-neutral-800 text-white shadow-lg shadow-cyan-800">
 			<table className="table-fixed pl-4">
-				<thead className="sticky top-0 z-10 bg-neutral-800 after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:bg-gray-500">
+				<thead className="sticky top-0 z-10 bg-neutral-800 after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:bg-cyan-500">
 					<tr className="">
 						<th className="w-1/3 p-4 py-3 text-left text-lg">Name</th>
 						<th className="w-1/3 p-4 py-3 text-left text-lg">Type</th>
