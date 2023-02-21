@@ -21,9 +21,9 @@ export default function SummaryTable() {
 			<table className="table-fixed pl-4">
 				<thead className="sticky top-0 z-10 border-b-2 border-gray-300 bg-neutral-700">
 					<tr className="">
-						<th className="p-4 text-left text-lg">Name</th>
-						<th className="p-4 text-left text-lg">Type</th>
-						<th className="p-4 text-left text-lg">Condition/Grade</th>
+						<th className="p-4 py-2 text-left text-lg">Name</th>
+						<th className="p-4 py-2 text-left text-lg">Type</th>
+						<th className="p-4 py-2 text-left text-lg">Condition/Grade</th>
 					</tr>
 				</thead>
 				<tbody className="relative divide-y-2 divide-gray-600">
