@@ -12,21 +12,21 @@ const CSNav: React.FC<{}> = () => {
 	const dispatch = useDispatch();
 
 	return (
-		<nav className="z-10 border-b border-neutral-600">
-			<ul className="relative flex h-full w-full items-center justify-center">
+		<nav className="z-10 border-b border-neutral-800">
+			<ul className="relative flex h-full w-full items-center justify-center divide-x divide-gray-700 border-b border-gray-700">
 				<li
 					onClick={() => changeTabFunction("g")}
 					className={`w-full ${
-						csTab === "g" ? "bg-neutral-600" : "bg-neutral-700"
-					} p-2 text-center text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:bg-neutral-600`}
+						csTab === "g" ? "bg-neutral-800" : "bg-neutral-800"
+					} p-2 text-center text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:bg-neutral-800`}
 				>
 					Guns
 				</li>
 				<li
 					onClick={() => changeTabFunction("s")}
 					className={`w-full ${
-						csTab === "s" ? "bg-neutral-600" : "bg-neutral-700"
-					} p-2 text-center text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:bg-neutral-600`}
+						csTab === "s" ? "bg-neutral-800" : "bg-neutral-800"
+					} p-2 text-center text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:bg-neutral-800`}
 				>
 					Stickers
 				</li>

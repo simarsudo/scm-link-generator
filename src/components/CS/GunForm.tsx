@@ -53,7 +53,7 @@ const GunForm = () => {
 			animate={{ y: 0, opacity: 1 }}
 			exit={{ y: -10, opacity: 0 }}
 			transition={{ duration: 0.2 }}
-			className="h-full bg-neutral-700"
+			className="h-full bg-neutral-800"
 		>
 			<FormWrapper
 				className="flex flex-col gap-4"
