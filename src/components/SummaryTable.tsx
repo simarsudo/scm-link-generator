@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { gun, sticker } from "../typeModels/models";
-import { AnimatePresence, motion, spring } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { gConditions } from "../typeModels/models";
 
 const variants = {
