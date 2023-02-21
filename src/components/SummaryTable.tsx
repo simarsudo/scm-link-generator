@@ -2,27 +2,31 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { gun, sticker } from "../typeModels/models";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, spring } from "framer-motion";
 
-<tr>
-	<td className="p-4 pl-4 text-left">Yo</td>
-	<td className="p-4 pl-4 text-left">Yo1</td>
-	<td className="p-4 pl-4 text-left">Yo2</td>
-</tr>;
+const variants = {
+	active: {
+		y: 0,
+		transition: { duration: 0.5, type: "spring" },
+	},
+	inactive: {
+		y: "200%",
+	},
+};
 
 export default function SummaryTable() {
 	const summaryData = useSelector((state: RootState) => state.csSummary);
 	return (
-		<div className="flex h-full w-full flex-col overflow-hidden rounded bg-neutral-700 text-white shadow-md shadow-cyan-800">
+		<div className="flex h-full w-full flex-col overflow-hidden overflow-y-auto rounded bg-neutral-700 text-white shadow-md shadow-cyan-800">
 			<table className="table-fixed pl-4">
-				<thead className="sticky border-b-2 border-gray-300">
-					<tr>
+				<thead className="sticky top-0 z-10 border-b-2 border-gray-300 bg-neutral-700">
+					<tr className="">
 						<th className="p-4 text-left text-lg">Name</th>
 						<th className="p-4 text-left text-lg">Type</th>
 						<th className="p-4 text-left text-lg">Condition/Grade</th>
 					</tr>
 				</thead>
-				<tbody className="divide-y-2 divide-gray-600">
+				<tbody className="relative divide-y-2 divide-gray-600">
 					<AnimatePresence>
 						{Object.values(summaryData).map((x: gun | sticker) => {
 							if ("isStatTrak" in x) {
@@ -30,10 +34,9 @@ export default function SummaryTable() {
 									// Gun
 									<motion.tr
 										key={x.name}
-										initial={{ y: 10, opacity: 0 }}
-										animate={{ y: 0, opacity: 1 }}
-										exit={{ y: -10, opacity: 0 }}
-										transition={{ duration: 0.2 }}
+										variants={variants}
+										initial="inactive"
+										animate="active"
 									>
 										<td className="p-4 pl-4 text-left">{x.name}</td>
 										<td className="p-4 pl-4 text-left">{x.type}</td>
@@ -44,17 +47,16 @@ export default function SummaryTable() {
 								return (
 									<motion.tr
 										key={x.name}
-										initial={{ y: 10, opacity: 0 }}
-										animate={{ y: 0, opacity: 1 }}
-										exit={{ y: -10, opacity: 0 }}
-										transition={{ duration: 0.2 }}
+										variants={variants}
+										initial="inactive"
+										animate="active"
 									>
 										<td className="p-4 pl-4 text-left">{x.name}</td>
 										<td className="p-4 pl-4 text-left">{x.type}</td>
 									</motion.tr>
 								);
 							}
-						})}{" "}
+						})}
 					</AnimatePresence>
 				</tbody>
 			</table>
