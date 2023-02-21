@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { gun, sticker } from "../typeModels/models";
+import { gun, sGrade, sticker } from "../typeModels/models";
 import { AnimatePresence, motion } from "framer-motion";
 import { gConditions } from "../typeModels/models";
 
@@ -23,6 +23,15 @@ const conditions: gConditions = {
 	FT: "Field-Tested",
 	WW: "Well-Worn",
 	BS: "Battle-Scarred",
+};
+
+const stickerGrade: sGrade = {
+	Paper: "PA",
+	Foil: "FO",
+	Glitter: "GL",
+	Holo: "HO",
+	Gold: "GO",
+	Lenticular: "LE",
 };
 
 const baseStickerLink =
@@ -113,7 +122,7 @@ export default function SummaryTable() {
 														target="_blank"
 														className="underline decoration-cyan-400 decoration-2 underline-offset-4 transition-colors hover:text-cyan-400"
 													>
-														{grade}
+														{stickerGrade[grade]}
 													</a>
 												);
 											})}

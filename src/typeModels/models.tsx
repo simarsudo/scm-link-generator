@@ -28,3 +28,12 @@ export type gConditions = {
 	WW: string;
 	BS: string;
 };
+
+export type sGrade = {
+	[Paper: string]: string;
+	Foil: string;
+	Glitter: string;
+	Holo: string;
+	Gold: string;
+	Lenticular: string;
+};
