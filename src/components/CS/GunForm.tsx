@@ -5,6 +5,8 @@ import GunType from "../input-component/GunType";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/csSummary";
 import { gc } from "../../typeModels/models";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const checkBoxWrapper = "flex gap-2 items-center justify-center text-gray-200";
 const spanText = "font-semibold text-white";
@@ -37,6 +39,10 @@ const GunForm = () => {
 			isStatTrak: isStatTrak,
 			conditions: [...conditions],
 		};
+		if (keyValues.conditions.length === 0) {
+			toast("Please select 1 gun condition.");
+			return;
+		}
 		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
 		dispatch(addItem(keyValues));
 	};
@@ -146,6 +152,7 @@ const GunForm = () => {
 					Add
 				</motion.button>
 			</FormWrapper>
+			<ToastContainer />
 		</motion.div>
 	);
 };

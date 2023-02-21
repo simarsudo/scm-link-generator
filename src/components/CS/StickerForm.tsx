@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import FormWrapper from "../FormWrapper";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/csSummary";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type sc = {
 	Paper: Boolean;
@@ -45,6 +47,14 @@ const StickerForm = (props: Props) => {
 			tournamentName: tName.current?.value!,
 			grade: [...sGrade],
 		};
+		if (keyValues.isTS && keyValues.tournamentName === "") {
+			toast("Please enter tournament name.");
+			return;
+		}
+		if (keyValues.grade.length === 0) {
+			toast("Please select 1 sticker grade.");
+			return;
+		}
 		dispatch(addItem(keyValues));
 		console.log(
 			`${stickerName.current?.value}sticker`,
@@ -143,6 +153,7 @@ const StickerForm = (props: Props) => {
 					Add
 				</motion.button>
 			</FormWrapper>
+			<ToastContainer />
 		</motion.div>
 	);
 };
