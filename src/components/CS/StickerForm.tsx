@@ -78,7 +78,12 @@ const StickerForm = (props: Props) => {
 			>
 				<div className="flex flex-col gap-4">
 					<span className={spanText}>Sticker Name</span>
-					<input type="text" className="justify-end" ref={stickerName} />
+					<input
+						type="text"
+						className="justify-end"
+						ref={stickerName}
+						required
+					/>
 				</div>
 				<div className="flex items-center justify-center gap-4">
 					<span className={spanText}>Tournament Sticker</span>
