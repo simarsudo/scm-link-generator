@@ -48,11 +48,11 @@ const StickerForm = (props: Props) => {
 			grade: [...sGrade],
 		};
 		if (keyValues.isTS && keyValues.tournamentName === "") {
-			toast("Please enter tournament name.");
+			toast.error("Please enter tournament name.");
 			return;
 		}
 		if (keyValues.grade.length === 0) {
-			toast("Please select 1 sticker grade.");
+			toast.error("Please select 1 sticker grade.");
 			return;
 		}
 		dispatch(addItem(keyValues));
@@ -153,7 +153,12 @@ const StickerForm = (props: Props) => {
 					Add
 				</motion.button>
 			</FormWrapper>
-			<ToastContainer />
+			<ToastContainer
+				pauseOnHover={false}
+				theme="dark"
+				bodyClassName="bg-neutral-900"
+				toastClassName="bg-neutral-900"
+			/>
 		</motion.div>
 	);
 };
