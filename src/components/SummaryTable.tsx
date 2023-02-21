@@ -25,6 +25,28 @@ const conditions: gConditions = {
 	BS: "Battle-Scarred",
 };
 
+const baseStickerLink =
+	"https://steamcommunity.com/market/listings/730/Sticker | ";
+
+function generateGunLink(gun: gun, condition: string): string {
+	return `${baseLink}${gun.isStatTrak ? "StatTrak™ " : ""}${gun.type} | ${
+		gun.name
+	} (${conditions[condition]})`;
+}
+
+function generateStickerLink(sticker: sticker, grade: string): string {
+	let gradeLink = `${grade === "Paper" ? "" : ` (${grade})`}`;
+	let tLink = gradeLink;
+	if (sticker.isTS) {
+		tLink = `${
+			sticker.isTS ? `${gradeLink} | ${sticker.tournamentName}` : `${gradeLink}`
+		}`;
+	}
+	`${baseStickerLink}`;
+	const link = `${baseStickerLink}${sticker.name}${tLink}`;
+	return link;
+}
+
 export default function SummaryTable() {
 	const summaryData = useSelector((state: RootState) => state.csSummary);
 	return (
@@ -49,7 +71,9 @@ export default function SummaryTable() {
 										initial="inactive"
 										animate="active"
 									>
-										<td className="p-4 pl-6 text-left">{x.name}</td>
+										<td className="p-4 pl-6 text-left">{`${x.name}${
+											x.isStatTrak ? " StatTrak™" : ""
+										}`}</td>
 										<td className="p-4 pl-6 text-left">{x.type}</td>
 										<td className="flex gap-1 p-4 pl-6 text-left">
 											{x.conditions.map((condition: string) => {
@@ -57,9 +81,7 @@ export default function SummaryTable() {
 													<a
 														key={condition}
 														rel="noopener noreferrer"
-														href={`${baseLink}${
-															x.isStatTrak ? "StatTrak™ " : ""
-														}${x.type} | ${x.name} (${conditions[condition]})`}
+														href={generateGunLink(x, condition)}
 														target="_blank"
 													>
 														{condition}
@@ -80,6 +102,20 @@ export default function SummaryTable() {
 									>
 										<td className="p-4 pl-4 text-left">{x.name}</td>
 										<td className="p-4 pl-4 text-left">{x.type}</td>
+										<td className="flex gap-1 p-4 pl-6 text-left">
+											{x.grade.map((grade: string) => {
+												return (
+													<a
+														key={grade}
+														rel="noopener noreferrer"
+														href={generateStickerLink(x, grade)}
+														target="_blank"
+													>
+														{grade}
+													</a>
+												);
+											})}
+										</td>
 									</motion.tr>
 								);
 							}
