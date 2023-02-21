@@ -19,11 +19,11 @@ export default function SummaryTable() {
 	return (
 		<div className="flex h-full w-full flex-col overflow-hidden overflow-y-auto rounded bg-neutral-700 text-white shadow-md shadow-cyan-800">
 			<table className="table-fixed pl-4">
-				<thead className="sticky top-0 z-10 border-b-2 border-gray-300 bg-neutral-700">
+				<thead className="sticky top-0 z-10 bg-neutral-700 after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:bg-gray-300">
 					<tr className="">
-						<th className="p-4 py-2 text-left text-lg">Name</th>
-						<th className="p-4 py-2 text-left text-lg">Type</th>
-						<th className="p-4 py-2 text-left text-lg">Condition/Grade</th>
+						<th className="p-4 py-3 text-left text-lg">Name</th>
+						<th className="p-4 py-3 text-left text-lg">Type</th>
+						<th className="p-4 py-3 text-left text-lg">Condition/Grade</th>
 					</tr>
 				</thead>
 				<tbody className="relative divide-y-2 divide-gray-600">
@@ -38,8 +38,8 @@ export default function SummaryTable() {
 										initial="inactive"
 										animate="active"
 									>
-										<td className="p-4 pl-4 text-left">{x.name}</td>
-										<td className="p-4 pl-4 text-left">{x.type}</td>
+										<td className="p-4 pl-6 text-left">{x.name}</td>
+										<td className="p-4 pl-6 text-left">{x.type}</td>
 									</motion.tr>
 								);
 							} else {
