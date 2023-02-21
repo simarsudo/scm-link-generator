@@ -4,8 +4,7 @@ import FormWrapper from "../FormWrapper";
 import GunType from "../input-component/GunType";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/csSummary";
-
-type gc = { FN: Boolean; MW: Boolean; FT: Boolean; WW: Boolean; BS: Boolean };
+import { gc } from "../../typeModels/models";
 
 const checkBoxWrapper = "flex gap-2 items-center justify-center text-gray-200";
 const spanText = "font-semibold text-white";

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { gun, sticker } from "../typeModels/models";
 import { AnimatePresence, motion, spring } from "framer-motion";
+import { gConditions } from "../typeModels/models";
 
 const variants = {
 	active: {
@@ -12,6 +13,16 @@ const variants = {
 	inactive: {
 		y: "200%",
 	},
+};
+
+const baseLink = "https://steamcommunity.com/market/listings/730/";
+
+const conditions: gConditions = {
+	FN: "Factory New",
+	MW: "Minimal Wear",
+	FT: "Field-Tested",
+	WW: "Well-Worn",
+	BS: "Battle-Scarred",
 };
 
 export default function SummaryTable() {
@@ -40,6 +51,22 @@ export default function SummaryTable() {
 									>
 										<td className="p-4 pl-6 text-left">{x.name}</td>
 										<td className="p-4 pl-6 text-left">{x.type}</td>
+										<td className="flex gap-1 p-4 pl-6 text-left">
+											{x.conditions.map((condition: string) => {
+												return (
+													<a
+														key={condition}
+														rel="noopener noreferrer"
+														href={`${baseLink}${
+															x.isStatTrak ? "StatTrak™ " : ""
+														}${x.type} | ${x.name} (${conditions[condition]})`}
+														target="_blank"
+													>
+														{condition}
+													</a>
+												);
+											})}
+										</td>
 									</motion.tr>
 								);
 							} else {

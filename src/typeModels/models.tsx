@@ -12,3 +12,19 @@ export type gun = {
 	isStatTrak: Boolean;
 	conditions: string[];
 };
+
+export type gc = {
+	FN: Boolean;
+	MW: Boolean;
+	FT: Boolean;
+	WW: Boolean;
+	BS: Boolean;
+};
+
+export type gConditions = {
+	[FN: string]: string;
+	MW: string;
+	FT: string;
+	WW: string;
+	BS: string;
+};
