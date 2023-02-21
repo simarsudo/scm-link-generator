@@ -83,6 +83,7 @@ export default function SummaryTable() {
 														rel="noopener noreferrer"
 														href={generateGunLink(x, condition)}
 														target="_blank"
+														className="underline decoration-cyan-400 decoration-2 underline-offset-4 transition-colors hover:text-cyan-400"
 													>
 														{condition}
 													</a>
@@ -110,6 +111,7 @@ export default function SummaryTable() {
 														rel="noopener noreferrer"
 														href={generateStickerLink(x, grade)}
 														target="_blank"
+														className="underline decoration-cyan-400 decoration-2 underline-offset-4 transition-colors hover:text-cyan-400"
 													>
 														{grade}
 													</a>
