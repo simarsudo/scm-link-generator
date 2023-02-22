@@ -40,7 +40,7 @@ const GunForm = () => {
 			conditions: [...conditions],
 		};
 		if (keyValues.conditions.length === 0) {
-			toast.error("Please select 1 gun condition.");
+			toast.error("Please select 1 gun condition atleast.");
 			return;
 		}
 		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
@@ -159,8 +159,9 @@ const GunForm = () => {
 			<ToastContainer
 				pauseOnHover={false}
 				theme="dark"
-				bodyClassName="bg-neutral-900"
-				toastClassName="bg-neutral-900"
+				bodyClassName="bg-neutral-800"
+				toastClassName="bg-neutral-800 border border-gray-600"
+				progressClassName="bg-cyan-500"
 			/>
 		</motion.div>
 	);

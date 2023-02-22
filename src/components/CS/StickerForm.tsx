@@ -52,7 +52,7 @@ const StickerForm = (props: Props) => {
 			return;
 		}
 		if (keyValues.grade.length === 0) {
-			toast.error("Please select 1 sticker grade.");
+			toast.error("Please select 1 sticker grade atleast.");
 			return;
 		}
 		dispatch(addItem(keyValues));
@@ -167,8 +167,9 @@ const StickerForm = (props: Props) => {
 			<ToastContainer
 				pauseOnHover={false}
 				theme="dark"
-				bodyClassName="bg-neutral-900"
-				toastClassName="bg-neutral-900"
+				bodyClassName="bg-neutral-800"
+				toastClassName="bg-neutral-800 border border-gray-600"
+				progressClassName="bg-cyan-500"
 			/>
 		</motion.div>
 	);
