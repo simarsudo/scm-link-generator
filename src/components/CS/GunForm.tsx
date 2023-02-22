@@ -145,8 +145,12 @@ const GunForm = () => {
 					/>
 				</div>
 				<motion.button
-					whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 0.9 }}
+					whileHover={{ transform: "translateY(-10%)" }}
+					whileTap={{ transform: "translateY(3%)" }}
+					transition={{
+						type: "spring",
+						duration: 0.1,
+					}}
 					className="text-md hover:bg-border-500 h-11 w-28 self-end border-4 border-cyan-500 p-2 font-semibold  text-white transition-all hover:bg-cyan-500 hover:text-white"
 				>
 					Add
