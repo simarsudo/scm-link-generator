@@ -4,6 +4,7 @@ import { RootState } from "../store/store";
 import { gun, sGrade, sticker } from "../typeModels/models";
 import { AnimatePresence, motion } from "framer-motion";
 import { gConditions } from "../typeModels/models";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 const variants = {
 	active: {
@@ -81,6 +82,7 @@ export default function SummaryTable() {
 										variants={variants}
 										initial="inactive"
 										animate="active"
+										className="relative"
 									>
 										<td className="p-4 pl-6 text-left">{`${x.name}${
 											x.isStatTrak ? " StatTrak™" : ""
@@ -101,6 +103,9 @@ export default function SummaryTable() {
 												);
 											})}
 										</td>
+										<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+											<TrashIcon className="h-5 w-5" />
+										</div>
 									</motion.tr>
 								);
 							} else {
@@ -111,6 +116,7 @@ export default function SummaryTable() {
 										variants={variants}
 										initial="inactive"
 										animate="active"
+										className="relative"
 									>
 										<td className="p-4 pl-4 text-left">{x.name}</td>
 										<td className="p-4 pl-4 text-left">{x.type}</td>
@@ -129,6 +135,9 @@ export default function SummaryTable() {
 												);
 											})}
 										</td>
+										<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+											<TrashIcon className="h-5 w-5" />
+										</div>
 									</motion.tr>
 								);
 							}
