@@ -8,7 +8,7 @@ import Tr from "./Tr";
 export default function SummaryTable() {
 	const summaryData = useSelector((state: RootState) => state.csSummary);
 	return (
-		<div className="flex h-full w-full flex-col overflow-hidden overflow-y-auto rounded bg-neutral-800 text-white shadow-lg shadow-cyan-800">
+		<div className="flex h-1/2 w-full flex-1 flex-col overflow-hidden overflow-y-auto rounded bg-neutral-800 text-white shadow-lg shadow-cyan-800 md:h-full md:flex-auto">
 			<table className="table-fixed pl-4">
 				<thead className="sticky top-0 z-10 bg-neutral-800 after:absolute after:left-0 after:bottom-0 after:h-1 after:w-full after:bg-cyan-500">
 					<tr className="">
@@ -19,7 +19,7 @@ export default function SummaryTable() {
 						</th>
 					</tr>
 				</thead>
-				<tbody className="relative divide-y-2 divide-gray-700">
+				<tbody className="relative h-full divide-y-2 divide-gray-700">
 					<AnimatePresence mode="popLayout">
 						{Object.values(summaryData).map((x: gun | sticker, index) => {
 							if ("isStatTrak" in x) {
