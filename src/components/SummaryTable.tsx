@@ -20,7 +20,7 @@ export default function SummaryTable() {
 					</tr>
 				</thead>
 				<tbody className="relative divide-y-2 divide-gray-700">
-					<AnimatePresence>
+					<AnimatePresence mode="sync" initial={false}>
 						{Object.values(summaryData).map((x: gun | sticker, index) => {
 							if ("isStatTrak" in x) {
 								return (

@@ -9,10 +9,15 @@ import { useDispatch } from "react-redux";
 const variants = {
 	active: {
 		y: 0,
-		transition: { duration: 0.5, type: "spring" },
+		transition: { type: "spring" },
 	},
 	inactive: {
 		y: "200%",
+	},
+	removed: {
+		transform: "scale(0.8)",
+		opacity: 0,
+		transition: { type: "spring" },
 	},
 };
 
@@ -35,10 +40,11 @@ const Tr: React.FC<{
 		return (
 			// Gun
 			<motion.tr
-				key={data.name}
+				key={itemIndex}
 				variants={variants}
 				initial="inactive"
 				animate="active"
+				exit="removed"
 				className="relative"
 			>
 				<td className="p-4 pl-6 text-left">{`${data.name}${
@@ -74,10 +80,11 @@ const Tr: React.FC<{
 		//  Sticker
 		return (
 			<motion.tr
-				key={data.name}
+				key={itemIndex}
 				variants={variants}
 				initial="inactive"
 				animate="active"
+				exit="removed"
 				className="relative"
 			>
 				<td className="p-4 pl-4 text-left">{data.name}</td>
