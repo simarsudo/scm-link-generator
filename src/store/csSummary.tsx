@@ -11,9 +11,12 @@ const csSummarySlice = createSlice({
 			const keyValue = action.payload;
 			state.push(keyValue);
 		},
+		removeItem(state, action: PayloadAction<number>) {
+			state.splice(action.payload, 1);
+		},
 	},
 });
 
 const { actions, reducer } = csSummarySlice;
-export const { addItem } = actions;
+export const { addItem, removeItem } = actions;
 export default reducer;

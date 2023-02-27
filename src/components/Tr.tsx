@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { gun, sticker, sGrade } from "../typeModels/models";
 import { generateGunLink, generateStickerLink } from "../helper/linkFunctions";
+import { removeItem } from "../store/csSummary";
+import { useDispatch } from "react-redux";
 
 const variants = {
 	active: {
@@ -27,7 +29,8 @@ const Tr: React.FC<{
 	data: gun | sticker;
 	itemIndex: number;
 }> = ({ data, itemIndex }) => {
-	console.log(itemIndex);
+	const dispatch = useDispatch();
+
 	if ("isStatTrak" in data) {
 		return (
 			// Gun
@@ -57,7 +60,12 @@ const Tr: React.FC<{
 						);
 					})}
 				</td>
-				<td className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+				<td
+					onClick={() => {
+						dispatch(removeItem(itemIndex));
+					}}
+					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0"
+				>
 					<TrashIcon className="h-5 w-5" />
 				</td>
 			</motion.tr>
@@ -89,7 +97,12 @@ const Tr: React.FC<{
 						);
 					})}
 				</td>
-				<td className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+				<td
+					onClick={() => {
+						dispatch(removeItem(itemIndex));
+					}}
+					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0"
+				>
 					<TrashIcon className="h-5 w-5" />
 				</td>
 			</motion.tr>
