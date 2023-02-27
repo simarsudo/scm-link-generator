@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { gun, sticker, sGrade } from "../typeModels/models";
-import { gConditions } from "../typeModels/models";
+import { generateGunLink, generateStickerLink } from "../helper/linkFunctions";
 
 const variants = {
 	active: {
@@ -14,14 +14,6 @@ const variants = {
 	},
 };
 
-const conditions: gConditions = {
-	FN: "Factory New",
-	MW: "Minimal Wear",
-	FT: "Field-Tested",
-	WW: "Well-Worn",
-	BS: "Battle-Scarred",
-};
-
 const stickerGrade: sGrade = {
 	Paper: "PA",
 	Foil: "FO",
@@ -30,28 +22,6 @@ const stickerGrade: sGrade = {
 	Gold: "GO",
 	Lenticular: "LE",
 };
-
-function generateGunLink(gun: gun, condition: string): string {
-	const baseLink = "https://steamcommunity.com/market/listings/730/";
-	return `${baseLink}${gun.isStatTrak ? "StatTrak™ " : ""}${gun.type} | ${
-		gun.name
-	} (${conditions[condition]})`;
-}
-
-function generateStickerLink(sticker: sticker, grade: string): string {
-	const baseStickerLink =
-		"https://steamcommunity.com/market/listings/730/Sticker | ";
-	let gradeLink = `${grade === "Paper" ? "" : ` (${grade})`}`;
-	let tLink = gradeLink;
-	if (sticker.isTS) {
-		tLink = `${
-			sticker.isTS ? `${gradeLink} | ${sticker.tournamentName}` : `${gradeLink}`
-		}`;
-	}
-	`${baseStickerLink}`;
-	const link = `${baseStickerLink}${sticker.name}${tLink}`;
-	return link;
-}
 
 const Tr: React.FC<{
 	data: gun | sticker;
