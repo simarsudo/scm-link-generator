@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 const variants = {
 	active: {
 		y: 0,
-		transition: { type: "spring" },
+		transition: { duration: 0.5, type: "spring" },
 	},
 	inactive: {
 		y: "200%",
@@ -17,7 +17,7 @@ const variants = {
 	removed: {
 		transform: "scale(0.8)",
 		opacity: 0,
-		transition: { type: "spring" },
+		// transition: { type: "spring" },
 	},
 };
 
@@ -44,7 +44,7 @@ const Tr: React.FC<{
 				variants={variants}
 				initial="inactive"
 				animate="active"
-				exit="removed"
+				// exit="removed"
 				className="relative"
 			>
 				<td className="p-4 pl-6 text-left">{`${data.name}${
@@ -84,7 +84,7 @@ const Tr: React.FC<{
 				variants={variants}
 				initial="inactive"
 				animate="active"
-				exit="removed"
+				// exit="removed"
 				className="relative"
 			>
 				<td className="p-4 pl-4 text-left">{data.name}</td>
