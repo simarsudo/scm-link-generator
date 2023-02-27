@@ -21,15 +21,15 @@ export default function SummaryTable() {
 				</thead>
 				<tbody className="relative divide-y-2 divide-gray-700">
 					<AnimatePresence>
-						{Object.values(summaryData).map((x: gun | sticker) => {
+						{Object.values(summaryData).map((x: gun | sticker, index) => {
 							if ("isStatTrak" in x) {
 								return (
 									// Gun
-									<Tr data={x} />
+									<Tr data={x} itemIndex={index} key={index} />
 								);
 							} else {
 								//  Sticker
-								return <Tr data={x} />;
+								return <Tr data={x} itemIndex={index} key={index} />;
 							}
 						})}
 					</AnimatePresence>

@@ -55,7 +55,9 @@ function generateStickerLink(sticker: sticker, grade: string): string {
 
 const Tr: React.FC<{
 	data: gun | sticker;
-}> = ({ data }) => {
+	itemIndex: number;
+}> = ({ data, itemIndex }) => {
+	console.log(itemIndex);
 	if ("isStatTrak" in data) {
 		return (
 			// Gun
@@ -85,9 +87,9 @@ const Tr: React.FC<{
 						);
 					})}
 				</td>
-				<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+				<td className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
 					<TrashIcon className="h-5 w-5" />
-				</div>
+				</td>
 			</motion.tr>
 		);
 	} else {
@@ -117,9 +119,9 @@ const Tr: React.FC<{
 						);
 					})}
 				</td>
-				<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
+				<td className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
 					<TrashIcon className="h-5 w-5" />
-				</div>
+				</td>
 			</motion.tr>
 		);
 	}
