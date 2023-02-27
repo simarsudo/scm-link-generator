@@ -64,7 +64,7 @@ const Tr: React.FC<{
 					onClick={() => {
 						dispatch(removeItem(itemIndex));
 					}}
-					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0"
+					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0 hover:bg-rose-700"
 				>
 					<TrashIcon className="h-5 w-5" />
 				</td>
@@ -101,7 +101,7 @@ const Tr: React.FC<{
 					onClick={() => {
 						dispatch(removeItem(itemIndex));
 					}}
-					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0"
+					className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0 hover:bg-rose-700"
 				>
 					<TrashIcon className="h-5 w-5" />
 				</td>
