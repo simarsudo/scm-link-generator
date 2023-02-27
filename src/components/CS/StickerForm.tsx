@@ -56,12 +56,12 @@ const StickerForm = (props: Props) => {
 			return;
 		}
 		dispatch(addItem(keyValues));
-		console.log(
-			`${stickerName.current?.value}sticker`,
-			isTS,
-			tName.current?.value,
-			grade
-		);
+		// console.log(
+		// 	`${stickerName.current?.value}sticker`,
+		// 	isTS,
+		// 	tName.current?.value,
+		// 	grade
+		// );
 	};
 
 	return (

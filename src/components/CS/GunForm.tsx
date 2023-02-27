@@ -43,7 +43,7 @@ const GunForm = () => {
 			toast.error("Please select 1 gun condition atleast.");
 			return;
 		}
-		console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
+		// console.log(gunType, gunNameRef.current?.value, gunConditions, isStatTrak);
 		dispatch(addItem(keyValues));
 	};
 
