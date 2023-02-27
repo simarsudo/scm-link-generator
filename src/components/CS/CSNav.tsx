@@ -1,6 +1,6 @@
 import React, { MouseEvent } from "react";
-import { RootState } from "../store/store";
-import { changeTab } from "../store/cs";
+import { RootState } from "../../store/store";
+import { changeTab } from "../../store/cs";
 import { useDispatch, useSelector } from "react-redux";
 
 const CSNav: React.FC<{}> = () => {

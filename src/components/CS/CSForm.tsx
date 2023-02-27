@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { RootState } from "../store/store";
+import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import CSNav from "./CSNav";
-import GunForm from "./CS/GunForm";
-import StickerForm from "./CS/StickerForm";
+import GunForm from "./GunForm";
+import StickerForm from "./StickerForm";
 
 export default function CSForm() {
 	const category = useSelector((state: RootState) => state.cs.tab);

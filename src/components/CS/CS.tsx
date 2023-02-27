@@ -1,6 +1,6 @@
 import React from "react";
 import CSForm from "./CSForm";
-import SummaryTable from "./SummaryTable";
+import SummaryTable from "../SummaryTable";
 
 export default function CS() {
 	return (

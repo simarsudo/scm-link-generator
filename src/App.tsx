@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CS from "./components/CS";
+import CS from "./components/CS/CS";
 import TF2 from "./components/TF2";
 
 function App() {
