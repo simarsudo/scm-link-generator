@@ -1,61 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { gun, sGrade, sticker } from "../typeModels/models";
+import { gun, sticker } from "../typeModels/models";
 import { AnimatePresence, motion } from "framer-motion";
-import { gConditions } from "../typeModels/models";
-import { TrashIcon } from "@heroicons/react/24/outline";
-
-const variants = {
-	active: {
-		y: 0,
-		transition: { duration: 0.5, type: "spring" },
-	},
-	inactive: {
-		y: "200%",
-	},
-};
-
-const baseLink = "https://steamcommunity.com/market/listings/730/";
-
-const conditions: gConditions = {
-	FN: "Factory New",
-	MW: "Minimal Wear",
-	FT: "Field-Tested",
-	WW: "Well-Worn",
-	BS: "Battle-Scarred",
-};
-
-const stickerGrade: sGrade = {
-	Paper: "PA",
-	Foil: "FO",
-	Glitter: "GL",
-	Holo: "HO",
-	Gold: "GO",
-	Lenticular: "LE",
-};
-
-const baseStickerLink =
-	"https://steamcommunity.com/market/listings/730/Sticker | ";
-
-function generateGunLink(gun: gun, condition: string): string {
-	return `${baseLink}${gun.isStatTrak ? "StatTrak™ " : ""}${gun.type} | ${
-		gun.name
-	} (${conditions[condition]})`;
-}
-
-function generateStickerLink(sticker: sticker, grade: string): string {
-	let gradeLink = `${grade === "Paper" ? "" : ` (${grade})`}`;
-	let tLink = gradeLink;
-	if (sticker.isTS) {
-		tLink = `${
-			sticker.isTS ? `${gradeLink} | ${sticker.tournamentName}` : `${gradeLink}`
-		}`;
-	}
-	`${baseStickerLink}`;
-	const link = `${baseStickerLink}${sticker.name}${tLink}`;
-	return link;
-}
+import Tr from "./Tr";
 
 export default function SummaryTable() {
 	const summaryData = useSelector((state: RootState) => state.csSummary);
@@ -77,69 +25,11 @@ export default function SummaryTable() {
 							if ("isStatTrak" in x) {
 								return (
 									// Gun
-									<motion.tr
-										key={x.name}
-										variants={variants}
-										initial="inactive"
-										animate="active"
-										className="relative"
-									>
-										<td className="p-4 pl-6 text-left">{`${x.name}${
-											x.isStatTrak ? " StatTrak™" : ""
-										}`}</td>
-										<td className="p-4 pl-6 text-left">{x.type}</td>
-										<td className="flex gap-1 p-4 pl-6 text-left">
-											{x.conditions.map((condition: string) => {
-												return (
-													<a
-														key={condition}
-														rel="noopener noreferrer"
-														href={generateGunLink(x, condition)}
-														target="_blank"
-														className="underline decoration-cyan-400 decoration-2 underline-offset-4 transition-colors hover:text-cyan-400"
-													>
-														{condition}
-													</a>
-												);
-											})}
-										</td>
-										<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
-											<TrashIcon className="h-5 w-5" />
-										</div>
-									</motion.tr>
+									<Tr data={x} />
 								);
 							} else {
 								//  Sticker
-								return (
-									<motion.tr
-										key={x.name}
-										variants={variants}
-										initial="inactive"
-										animate="active"
-										className="relative"
-									>
-										<td className="p-4 pl-4 text-left">{x.name}</td>
-										<td className="p-4 pl-4 text-left">{x.type}</td>
-										<td className="flex gap-1 p-4 pl-6 text-left">
-											{x.grade.map((grade: string) => {
-												return (
-													<a
-														key={grade}
-														rel="noopener noreferrer"
-														href={generateStickerLink(x, grade)}
-														target="_blank"
-														className="underline decoration-cyan-400 decoration-2 underline-offset-4 transition-colors hover:text-cyan-400"
-													>
-														{stickerGrade[grade]}
-													</a>
-												);
-											})}
-										</td>
-										<div className="absolute -right-5 top-2 flex h-[70%] cursor-pointer items-center justify-center rounded-sm bg-rose-500 px-2 transition-all hover:-right-0">
-											<TrashIcon className="h-5 w-5" />
-										</div>
-									</motion.tr>
-								);
+								return <Tr data={x} />;
 							}
 						})}
 					</AnimatePresence>
